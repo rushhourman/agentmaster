@@ -43,7 +43,7 @@ def main():
     while True:
         trades = fetch_trades()
         for tr in reversed(trades):
-            tid = tr["tradeId"]
+            tid = tr.get("id") or tr.get("tradeId")
             if tid in state["seen"]:
                 continue
 
